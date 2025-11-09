@@ -56,11 +56,6 @@ jobs:
           body: |
             ## Currency Rate Module - Release ${{ inputs.version }}
 
-            ### Instalacja
-            1. Pobierz plik `currencyrate.zip`
-            2. W panelu administracyjnym PrestaShop przejdź do **Moduły → Menedżer modułów**
-            3. Kliknij **Załaduj moduł** i wybierz pobrany plik ZIP
-
             ### Środowisko testowe Docker
             Jeśli chcesz przetestować moduł w środowisku Docker:
             1. Pobierz plik `docker-compose.yml`
@@ -72,6 +67,13 @@ jobs:
             7. W sekcji "Importuj paczkę lokalizacyjną" zaimportuj polską paczkę (Poland)
             8. Upewnij się, że w sekcji Międzynarodowe -> Lokalizacja -> zakładka "Waluty" znajduje się waluta PLN
             9. W sekcji Międzynarodowe -> Lokalizacja -> Konfiguracja ustaw domyslną walutę na "Złoty Polski (PLN)"
+
+            ### Instalacja i konfiguracja modułu
+            1. Pobierz plik `currencyrate.zip`
+            2. W panelu administracyjnym PrestaShop przejdź do **Moduły -> Menedżer modułów**
+            3. Kliknij **Załaduj moduł** i wybierz pobrany plik ZIP
+            4. Przejdź do konfiguracji modułu
+            5. W sekcji "Update information" kliknij zielony przycisk "Update Rates Now"
 
             ### Zawartość release'u
             - **currencyrate.zip** - moduł PrestaShop gotowy do instalacji
