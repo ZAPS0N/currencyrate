@@ -1,5 +1,5 @@
 {
-    "name": "currency-rate/currency-rate",
+    "name": "currencyrate/currencyrate",
     "description": "Display current and historical currency exchange rates from NBP API",
     "type": "prestashop-module",
     "license": "AFL-3.0",
@@ -16,7 +16,7 @@
             "CurrencyRate\\": "src/"
         },
         "classmap": [
-            "currency-rate.php"
+            "currencyrate.php"
         ]
     },
     "config": {

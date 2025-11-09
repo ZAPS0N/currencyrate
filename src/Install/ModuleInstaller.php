@@ -62,8 +62,7 @@ class ModuleInstaller
     {
         return $this->createTables()
             && $this->setDefaultConfiguration()
-            && $this->registerHooks()
-            && $this->installTab();
+            && $this->registerHooks();
     }
 
     /**
@@ -74,8 +73,7 @@ class ModuleInstaller
     public function uninstall(): bool
     {
         return $this->removeTables()
-            && $this->removeConfiguration()
-            && $this->uninstallTab();
+            && $this->removeConfiguration();
     }
 
     /**
@@ -217,53 +215,6 @@ class ModuleInstaller
             if (!$this->module->registerHook($hook)) {
                 return false;
             }
-        }
-
-        return true;
-    }
-
-    /**
-     * Install admin tab
-     *
-     * @return bool
-     */
-    private function installTab(): bool
-    {
-        $tab = new Tab();
-        $tab->active = 1;
-        $tab->class_name = 'AdminCurrencyRate';
-        $tab->name = [];
-
-        foreach (Language::getLanguages(true) as $lang) {
-            $tab->name[$lang['id_lang']] = 'Currency Rates';
-        }
-
-        $parentTabId = (int) Db::getInstance()->getValue(
-            'SELECT `id_tab` FROM `' . _DB_PREFIX_ . 'tab` WHERE `class_name` = "AdminTools"'
-        );
-
-        $tab->id_parent = $parentTabId > 0 ? $parentTabId : 0;
-        $tab->module = $this->module->name;
-
-        return $tab->add();
-    }
-
-    /**
-     * Uninstall admin tab
-     *
-     * @return bool
-     */
-    private function uninstallTab(): bool
-    {
-        $idTab = (int) Db::getInstance()->getValue(
-            'SELECT `id_tab` FROM `' . _DB_PREFIX_ . 'tab`
-            WHERE `class_name` = "AdminCurrencyRate" AND `module` = "' . pSQL($this->module->name) . '"'
-        );
-
-        if ($idTab) {
-            $tab = new Tab($idTab);
-
-            return $tab->delete();
         }
 
         return true;
