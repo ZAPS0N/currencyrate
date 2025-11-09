@@ -24,6 +24,10 @@ desktop.ini
 /tmp/
 /temp/
 
+# --- Composer dependencies ---
+/vendor/
+composer.lock
+
 # --- Build artifacts ---
 /dist/
 /build/

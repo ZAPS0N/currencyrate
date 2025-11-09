@@ -1,0 +1,91 @@
+name: Create Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g., v1.0.0)'
+        required: true
+        type: string
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create module directory structure
+        run: |
+          # Create temporary directory for the module
+          mkdir -p /tmp/currencyrate
+
+          # Copy all files to the module directory, excluding unwanted files
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='vendor' \
+            --exclude='node_modules' \
+            --exclude='.gitignore' \
+            --exclude='docker-compose.yml' \
+            --exclude='*.log' \
+            --exclude='.DS_Store' \
+            ./ /tmp/currencyrate/
+
+      - name: Install Composer dependencies (production)
+        run: |
+          cd /tmp/currencyrate
+          if [ -f composer.json ]; then
+            composer install --no-dev --optimize-autoloader --no-interaction
+          fi
+
+      - name: Create ZIP archive
+        run: |
+          cd /tmp
+          zip -r currencyrate.zip currencyrate/
+          mv currencyrate.zip ${{ github.workspace }}/
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ inputs.version }}
+          name: Release ${{ inputs.version }}
+          body: |
+            ## Currency Rate Module - Release ${{ inputs.version }}
+
+            ### Instalacja
+            1. Pobierz plik `currencyrate.zip`
+            2. W panelu administracyjnym PrestaShop przejdź do **Moduły → Menedżer modułów**
+            3. Kliknij **Załaduj moduł** i wybierz pobrany plik ZIP
+
+            ### Środowisko testowe Docker
+            Jeśli chcesz przetestować moduł w środowisku Docker:
+            1. Pobierz plik `docker-compose.yml`
+            2. Uruchom: `docker-compose up -d`
+            3. PrestaShop będzie dostępny pod adresem: http://localhost:8080
+            4. Panel administracyjny: http://localhost:8080/admin-dev
+            5. Login: `admin@prestashop.local` | Hasło: `Prestashop123!`
+            6. Przejdź do zakładki Międzynarodowe -> Lokalizacja
+            7. W sekcji "Importuj paczkę lokalizacyjną" zaimportuj polską paczkę (Poland)
+            8. Upewnij się, że w sekcji Międzynarodowe -> Lokalizacja -> zakładka "Waluty" znajduje się waluta PLN
+            9. W sekcji Międzynarodowe -> Lokalizacja -> Konfiguracja ustaw domyslną walutę na "Złoty Polski (PLN)"
+
+            ### Zawartość release'u
+            - **currencyrate.zip** - moduł PrestaShop gotowy do instalacji
+            - **README.md** - pełna dokumentacja modułu
+            - **docker-compose.yml** - środowisko testowe Docker
+
+            ---
+
+            Więcej informacji w pliku README.md
+          files: |
+            currencyrate.zip
+            README.md
+            docker-compose.yml
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
