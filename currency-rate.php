@@ -86,7 +86,7 @@ class CurrencyRate extends Module
      */
     public function __construct()
     {
-        $this->name = 'currencyrate';
+        $this->name = 'currency-rate';
         $this->tab = 'administration';
         $this->version = '1.0.0';
         $this->author = 'Bartosz Żabicki';
