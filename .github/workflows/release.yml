@@ -21,7 +21,7 @@ jobs:
       - name: Create module directory structure
         run: |
           # Create temporary directory for the module
-          mkdir -p /tmp/currency-rate
+          mkdir -p /tmp/currencyrate
 
           # Copy all files to the module directory, excluding unwanted files
           rsync -av \
@@ -33,11 +33,11 @@ jobs:
             --exclude='docker-compose.yml' \
             --exclude='*.log' \
             --exclude='.DS_Store' \
-            ./ /tmp/currency-rate/
+            ./ /tmp/currencyrate/
 
       - name: Install Composer dependencies (production)
         run: |
-          cd /tmp/currency-rate
+          cd /tmp/currencyrate
           if [ -f composer.json ]; then
             composer install --no-dev --optimize-autoloader --no-interaction
           fi
@@ -45,8 +45,8 @@ jobs:
       - name: Create ZIP archive
         run: |
           cd /tmp
-          zip -r currency-rate.zip currency-rate/
-          mv currency-rate.zip ${{ github.workspace }}/
+          zip -r currencyrate.zip currencyrate/
+          mv currencyrate.zip ${{ github.workspace }}/
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
@@ -69,14 +69,14 @@ jobs:
             9. W sekcji Międzynarodowe -> Lokalizacja -> Konfiguracja ustaw domyslną walutę na "Złoty Polski (PLN)"
 
             ### Instalacja i konfiguracja modułu
-            1. Pobierz plik `currency-rate.zip`
+            1. Pobierz plik `currencyrate.zip`
             2. W panelu administracyjnym PrestaShop przejdź do **Moduły -> Menedżer modułów**
             3. Kliknij **Załaduj moduł** i wybierz pobrany plik ZIP
             4. Przejdź do konfiguracji modułu
             5. W sekcji "Update information" kliknij zielony przycisk "Update Rates Now"
 
             ### Zawartość release'u
-            - **currency-rate.zip** - moduł PrestaShop gotowy do instalacji
+            - **currencyrate.zip** - moduł PrestaShop gotowy do instalacji
             - **README.md** - pełna dokumentacja modułu
             - **docker-compose.yml** - środowisko testowe Docker
 
@@ -84,7 +84,7 @@ jobs:
 
             Więcej informacji w pliku README.md
           files: |
-            currency-rate.zip
+            currencyrate.zip
             README.md
             docker-compose.yml
           draft: false
