@@ -1,0 +1,35 @@
+# --- Node / Front-end build ---
+/node_modules/
+/package-lock.json
+/yarn.lock
+/.npm/
+
+# --- IDE / Editor ---
+/.idea/
+/.vscode/
+/nbproject/
+/*.iml
+
+# --- System files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs and cache ---
+/*.log
+/logs/
+/cache/
+
+# --- Temporary files ---
+/tmp/
+/temp/
+
+# --- Build artifacts ---
+/dist/
+/build/
+/coverage/
+
+# --- PrestaShop specific ---
+# If you generate translation files or temporary compiled templates:
+/translations/*.cache
+/themes/*/cache/

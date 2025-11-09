@@ -1,0 +1,26 @@
+{
+    "name": "currencyrate/currencyrate",
+    "description": "Display current and historical currency exchange rates from NBP API",
+    "type": "prestashop-module",
+    "license": "AFL-3.0",
+    "authors": [
+        {
+            "name": "Bartosz Żabicki"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "CurrencyRate\\": "src/"
+        },
+        "classmap": [
+            "currencyrate.php"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    }
+}

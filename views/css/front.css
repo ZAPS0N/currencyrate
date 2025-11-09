@@ -1,0 +1,301 @@
+.currency-rate-history {
+    padding: 20px 0;
+}
+
+.currency-rate-table {
+    margin-top: 20px;
+}
+
+.currency-rate-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.currency-rate-table th a {
+    color: #212529;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.currency-rate-table th a:hover {
+    color: #007bff;
+}
+
+.currency-rate-table th a .material-icons {
+    font-size: 16px;
+    margin-left: 4px;
+}
+
+.currency-rate-table tbody tr:hover {
+    background-color: #f1f3f5;
+}
+
+.product-currency-rates {
+    border: 1px solid #dee2e6;
+}
+
+.product-currency-rates .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 12px 15px;
+}
+
+.product-currency-rates .card-header h3 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.product-currency-rates .table th,
+.product-currency-rates .table td {
+    padding: 8px 12px;
+}
+
+.currency-rates-btn {
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.currency-rates-btn,
+.currency-rates-btn .material-icons {
+    font-size: 1rem;
+}
+
+#currencyRatesModal .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #24b9d7;
+}
+
+#currencyRatesModal .modal-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+    width: 100%;
+}
+
+#currencyRatesModal .modal-title .material-icons {
+    color: #007bff;
+    font-size: 24px;
+}
+
+#currencyRatesModal .modal-body {
+    padding: 20px;
+}
+
+#currencyRatesModal .table {
+    margin-top: 15px;
+}
+
+#currencyRatesModal .table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+}
+
+#currencyRatesModal .table tbody tr:hover {
+    background-color: #f1f3f5;
+}
+
+#currencyRatesModal .modal-footer {
+    border-top: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+#currency-search {
+    border: 1px solid #dee2e6;
+}
+
+#currency-search:focus {
+    border-color: #24b9d7;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#clear-search {
+    cursor: pointer;
+}
+
+#search-results-count {
+    margin-top: 5px;
+    font-size: 0.875rem;
+}
+
+#no-results-message {
+    text-align: center;
+    padding: 20px;
+}
+
+#no-results-message .material-icons {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+#currencyRatesModal th.sortable {
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+
+#currencyRatesModal th.sortable a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#currencyRatesModal th.sortable:hover {
+    background-color: #e9ecef;
+}
+
+#currencyRatesModal th.sortable .sort-icon {
+    font-size: 18px;
+    margin-left: 5px;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+}
+
+#currencyRatesModal th.sortable:hover .sort-icon {
+    opacity: 1;
+}
+
+#currencyRatesModal th.sortable .material-icons {
+    vertical-align: middle;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-backdrop.fade {
+    opacity: 0;
+}
+
+.modal-backdrop.show {
+    opacity: 0.5;
+}
+
+#currencyRatesModal.fade {
+    transition: opacity 0.15s linear;
+}
+
+#currencyRatesModal.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+}
+
+#currencyRatesModal.show .modal-dialog {
+    transform: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal-open {
+    overflow: hidden;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+}
+
+.product-prices .current-price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.modal .form-currency-search > .input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .currency-rate-history .form-inline .form-group {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .currency-rate-history .form-inline .form-control {
+        width: 100%;
+    }
+
+    .currency-rate-table {
+        font-size: 14px;
+    }
+
+    .currency-rate-table th,
+    .currency-rate-table td {
+        padding: 8px 4px;
+    }
+
+    .currency-rates-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+
+    #currencyRatesModal .modal-dialog {
+        margin: 10px;
+        max-width: calc(100% - 20px);
+    }
+
+    #currencyRatesModal .modal-body {
+        padding: 15px;
+    }
+
+    #currencyRatesModal .table {
+        font-size: 13px;
+    }
+
+    #currencyRatesModal .table th,
+    #currencyRatesModal .table td {
+        padding: 6px 8px;
+    }
+
+    #currency-search {
+        font-size: 14px;
+    }
+
+    #search-results-count {
+        font-size: 0.75rem;
+    }
+
+    #currencyRatesModal th.sortable .sort-icon {
+        font-size: 16px;
+    }
+
+    .product-prices .current-price {
+        flex-wrap: wrap;
+    }
+}

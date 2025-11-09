@@ -1,0 +1,56 @@
+.currency-rate-module-config .panel {
+    margin-bottom: 20px;
+}
+
+.currency-rate-module-config .form-group {
+    margin-bottom: 20px;
+}
+
+.currency-rate-module-config .help-block {
+    color: #6c757d;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
+.currency-rate-module-config pre.well {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 15px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    overflow-x: auto;
+}
+
+.currency-rate-module-config .alert {
+    display: flex;
+    align-items: center;
+}
+
+.currency-rate-module-config .alert i {
+    margin-right: 10px;
+}
+
+.currency-rate-module-config .chosen-container {
+    width: 100% !important;
+}
+
+.currency-rate-module-config .chosen-container-multi .chosen-choices {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+#content .currency-rate-list table.table td {
+    vertical-align: middle;
+}
+
+#content .currency-rate-list .btn-group-action {
+    white-space: nowrap;
+}
+
+#content .cron-token .input-group-addon {
+    background-color: #fff;
+    border: none;
+    padding: 0;
+}
